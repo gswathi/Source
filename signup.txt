@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-<background color:blue></background>
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-compatible" content="IE=edge">
 <title>Chat App</title>
 <meta name="home page">
 <link rel="stylesheet" href="signup.txt">
+        
+    <style>
+body{
+          background-image:url('s.jpg');
+      background-size:cover;
+      }
+    </style>
     </head>
     <body>
+        
+        
         <h1 align=center> chatapp</h1>
         <br/>
         <p style="text-align:center">Thanks for choosing our app</p>
