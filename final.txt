@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="" data-ng-app="Welcomeapp">
+<head>
+    <meta t="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular Demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js" type="application/javascript"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
+    <link rel="stylesheet" href="css/Welcomestyle.css">
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+
+
+    <script type="text/javascript">
+        google.load("visualization", "1", {packages: ["corechart"]});
+     google.setOnLoadCallback(drawChart);
+ 
+     
+     
+     function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ["Element", "Density", { role: "style" } ],
+        ["Copper", 8.94, "#b87333"],
+        ["Silver", 10.49, "silver"],
+        ["Gold", 19.30, "gold"],
+        ["Platinum", 21.45, "color: #e5e4e2"]
+      ]);
+     
+     
+     
+     
+     
+     
+     var view = new google.visualization.DataView(data);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+
+      var options = {
+        title: "student planner",
+        width: 600,
+        height: 400,
+        bar: {groupWidth: "95%"},
+        legend: { position: "none" },
+      };
+      var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
+      chart.draw(view, options);
+  }
+  
+<div id="barchart_values" style="width: 900px; height: 300px;"></div>
+     
+     
+     
+     
+     
+     
+     
+     
+         
+         
+  
+
+         
+         
+        
+      
+        
+        
+        
+        
+
+        
+            
+
+        
+        
+        
+        
+        
+        
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<body>
+    Hello <label id="name"></label>
+
+    <div id="chart_div" style="width: 400px; height: 120px;">
+    
+    </div>
+
+        <div class="form-style-5">
+            <form>
+                <fieldset>
+                    <legend> student planner</legend>
+                    <input type="number" name="field1" id="lecture" placeholder="lecture">
+                    <input type="number" name="field2" id="notifications" placeholder="notifications">
+                    <input type="number" name="field3" id="assignments" placeholder="assignments">
+                    <input type="number" name="field4" id="exam" placeholder="exams">
+                    <input type="number" name="field5" id="to do list" placeholder="to do list">
+
+                </fieldset>
+
+                <input type="submit" value="Submit" onclick="drawChart()"/>
+            </form>
+        </div>
+
+    <div id="Barchart" style="width: 900px; height: 500px;"></div>
+
+    <button class="directbutton" onclick="twitter()">share vth twitter</button>
+
+    
+   
+</body>
+</html>
+
+<script>
+if (typeof(Storage) !== "undefined") {
+    document.getElementById("name").innerHTML = localStorage.getItem("lastname");
+}
+    </script>
+    <script>
+            
+
+        function drawChart(){
+            
+    document.getElementById("Barchart").innerHTML='<img src="https://chart.googleapis.com/chart?cht=bhs&chco=4D89F9,C6D9FD&chd=t:25,78,60,56&chs=250x100"></img>';
+                
+    
+                   }
+        function twitter()
+        {
+            
+        document.getElementById("twitter").innerHTML='<a href="https://twitter.com/intent/favorite?tweet_id=3137895960"></a>'
+
+    </script>
+
+
