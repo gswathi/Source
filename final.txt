@@ -9,28 +9,17 @@
     <link rel="stylesheet" href="css/Welcomestyle.css">
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
+<script>
+    type="text/javascript" src="//platform.twitter.com/widgets.js">
 
 
+    
+    </script>
+    
     <script type="text/javascript">
         google.load("visualization", "1", {packages: ["corechart"]});
      google.setOnLoadCallback(drawChart);
- 
-     
-     
-     function drawChart() {
-      var data = google.visualization.arrayToDataTable([
-        ["Element", "Density", { role: "style" } ],
-        ["Copper", 8.94, "#b87333"],
-        ["Silver", 10.49, "silver"],
-        ["Gold", 19.30, "gold"],
-        ["Platinum", 21.45, "color: #e5e4e2"]
-      ]);
-     
-     
-     
-     
-     
-     
+  
      var view = new google.visualization.DataView(data);
       view.setColumns([0, 1,
                        { calc: "stringify",
@@ -41,7 +30,7 @@
 
       var options = {
         title: "student planner",
-        width: 600,
+        width: 300,
         height: 400,
         bar: {groupWidth: "95%"},
         legend: { position: "none" },
@@ -50,74 +39,41 @@
       chart.draw(view, options);
   }
   
-<div id="barchart_values" style="width: 900px; height: 300px;"></div>
-     
-     
-     
-     
-     
-     
-     
-     
-         
-         
-  
-
-         
-         
-        
-      
-        
-        
-        
+<div id="barchart_values" style="width: 900px; height: 600px;"></div>
         
 
-        
-            
-
-        
-        
-        
-        
-        
-        
-    (function(d, s, id){
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {return;}
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
 </script>
 
 <body>
     Hello <label id="name"></label>
 
-    <div id="chart_div" style="width: 400px; height: 120px;">
+    <div id="chart_div" style="width: 200px; height: 200px;">
     
     </div>
 
         <div class="form-style-5">
             <form>
+                
                 <fieldset>
                     <legend> student planner</legend>
                     <input type="number" name="field1" id="lecture" placeholder="lecture">
                     <input type="number" name="field2" id="notifications" placeholder="notifications">
                     <input type="number" name="field3" id="assignments" placeholder="assignments">
                     <input type="number" name="field4" id="exam" placeholder="exams">
-                    <input type="number" name="field5" id="to do list" placeholder="to do list">
+                    
 
                 </fieldset>
 
                 <input type="submit" value="Submit" onclick="drawChart()"/>
             </form>
         </div>
+    
 
     <div id="Barchart" style="width: 900px; height: 500px;"></div>
+<div id="tweet" >
+    <button class="directbutton" onclick="location.href='https://twitter.com/intent/tweet?url=https://www.webniraj.com/2012/09/11/twitter-api-tweet-button-callbacks/&text=Twitter+API:+Tweet+Button+Callbacks';">share vth twitter</button>
 
-    <button class="directbutton" onclick="twitter()">share vth twitter</button>
-
-    
+    </div>
    
 </body>
 </html>
@@ -132,15 +88,29 @@ if (typeof(Storage) !== "undefined") {
 
         function drawChart(){
             
-    document.getElementById("Barchart").innerHTML='<img src="https://chart.googleapis.com/chart?cht=bhs&chco=4D89F9,C6D9FD&chd=t:25,78,60,56&chs=250x100"></img>';
+    document.getElementById("Barchart").innerHTML='<img src="https://chart.googleapis.com/chart?cht=bhs&chco=4D89F9,C6D9FD&chd=t:24,20,60,56&chs=250x100"></img>';
                 
     
                    }
-        function twitter()
-        {
-            
-        document.getElementById("twitter").innerHTML='<a href="https://twitter.com/intent/favorite?tweet_id=3137895960"></a>'
+        
+        function reward_user( event ) {
+    if ( event ) {
+        alert( 'Tweeted' );
+        console.log( event );
+    }
+}
 
+window.twttr = (function (d,s,id) {
+    var t, js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return; js=d.createElement(s); js.id=id;
+    js.src="//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
+    return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
+    }(document, "script", "twitter-wjs"));
+ 
+twttr.ready(function (twttr) {
+    twttr.events.bind('tweet', reward_user);
+});
+    
     </script>
 
 
