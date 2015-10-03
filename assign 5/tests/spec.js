@@ -24,11 +24,15 @@ describe('apiController', function () {
         it('Charts Shown property to true', function () {
             expect($scope.showCharts).toBe(true);
         });
-
-        it('Speaking Message property to true', function () {
+         it('Speaking Message property to true', function () {
             expect($scope.showSpeakingMessage).toBe(true);
         });
+        
+        it('Login Property to true',function(){
+  expect($scope.showMenu).toBe(true);
+});
 
+       
         it('then it defines a getDirection() method', function () {
             expect($scope.imageURL).not.toBe(null);
         });
