@@ -1,0 +1,75 @@
+<!DOCTYPE html">
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+ <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/creatEvent.js"></script>
+    <script data-require="angular.js@1.4.0" data-semver="1.4.0" src="https://code.angularjs.org/1.4.0/angular.js"></script>
+
+    <script src="js/ng-cordova.min.js"></script>
+
+</head>
+
+<body ng-app="starter3" ng-controller="eventController">
+    <ion-pane>
+    
+        <ion-header-bar>
+            <h1 align="center" style="color:blue">Student Corner  </h1>
+
+        </ion-header-bar>
+        <ion-content>
+            <div>
+             <h3 align="center">Create New Event</h3>
+            </div>
+            <div>
+                <label for="eventtype" class="sr-only">Event Type</label>
+                <input type="text" id="eventtype" class="form-control" placeholder="EventType" required autofocus ng-model="eventtype">
+
+                  <label for="eventname" class="sr-only">Event Type</label>
+                <input type="text" id="eventname" class="form-control" placeholder="Event Name" required autofocus ng-model="eventname">
+                <label for="fromDate" class="sr-only">From:</label>
+                <input type="date" id="fromDate" class="form-control" placeholder="From" required autofocus ng-model="fromDate">
+
+                <label for="to" class="sr-only">To:</label>
+                <input type="time" id="to" class="form-control" placeholder="To" required autofocus ng-model="to">
+
+                <label for="eventDescription" class="sr-only">To:</label>
+                <input type="text" id="to" class="form-control" placeholder="Event Description" required autofocus ng-model="eventDescription">
+
+
+                <label for="reminddate" class="sr-only">Reminder Date</label>
+                <input type="date" id="reminddate" class="form-control" placeholder="Reminder Date" required autofocus ng-model="reminddate">
+                <label for="remindtime" class="sr-only">Reminder Time</label>
+                <input type="time" id="remindtime" class="form-control" placeholder="Reminder Time" required autofocus ng-model="remindtime">
+                <br>
+                <br>
+
+                <button align="center" class="btn btn-lg btn-primary btn-block" ng_click="create(eventtype,eventname,fromDate,to,eventDescription,reminddate,remindtime)" type="submit">Create Events</button>
+
+            </div>
+            <div>
+                <h3>{{msg}}</h3>
+            </div>
+        </ion-content>
+    
+    </ion-pane>
+</body>
+
+</html>

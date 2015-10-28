@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+      <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+    
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+     <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+      
+      <script data-require="angular.js@1.4.0" data-semver="1.4.0" 
+    src="https://code.angularjs.org/1.4.0/angular.js"></script>
+  </head>
+  <body>
+
+ 	    <div class="container">
+<legend>Sign Up</legend>
+<div class="well">
+      <form id="signup" class="form-horizontal" method="post" action="success.php">
+		
+		<div class="control-group">
+	        <label class="control-label">First Name</label>
+			<div class="controls">
+			    <div class="input-prepend">
+				<span class="add-on"><i class="icon-user"></i></span>
+					<input type="text" class="input-xlarge" id="fname" name="fname" placeholder="First Name">
+				</div>
+			</div>
+		</div>
+		<div class="control-group ">
+	        <label class="control-label">Last Name</label>
+			<div class="controls">
+			    <div class="input-prepend">
+				<span class="add-on"><i class="icon-user"></i></span>
+					<input type="text" class="input-xlarge" id="lname" name="lname" placeholder="Last Name">
+				</div>
+			</div>
+		</div>
+		<div class="control-group">
+	        <label class="control-label">Email</label>
+			<div class="controls">
+			    <div class="input-prepend">
+				<span class="add-on"><i class="icon-envelope"></i></span>
+					<input type="text" class="input-xlarge" id="email" name="email" placeholder="Email">
+				</div>
+			</div>
+		</div>
+		<div class="control-group">
+	        <label class="control-label">Gender</label>
+			<div class="controls">
+
+					<p><div id="gender" name="gender" class="btn-group" data-toggle="buttons-radio">
+                    <button type="button" class="btn btn-info">Male</button>
+                    <button type="button" class="btn btn-info">Female</button>
+
+                  </div></p>
+
+			</div>
+		</div>
+		<div class="control-group">
+	        <label class="control-label">Password</label>
+			<div class="controls">
+			    <div class="input-prepend">
+				<span class="add-on"><i class="icon-lock"></i></span>
+					<input type="Password" id="passwd" class="input-xlarge" name="passwd" placeholder="Password">
+				</div>
+			</div>
+		</div>
+		<div class="control-group">
+	        <label class="control-label">Confirm Password</label>
+			<div class="controls">
+			    <div class="input-prepend">
+				<span class="add-on"><i class="icon-lock"></i></span>
+					<input type="Password" id="conpasswd" class="input-xlarge" name="conpasswd" placeholder="Re-enter Password">
+				</div>
+			</div>
+		</div>
+
+		<div class="control-group">
+		<label class="control-label"></label>
+	      <div class="controls">
+	       <button type="submit" class="btn btn-success" >Create My Account</button>
+
+	      </div>
+
+	</div>
+
+	  </form>
+
+   </div>
+</div>
+    </body>
+</html>
+ <script type="text/javascript">
+$(document).ready(function(){
+
+$("#signup").validate({
+rules:{
+fname:"required",
+lname:"required",
+email:{
+required:true,
+email: true
+},
+passwd:{
+required:true,
+minlength: 8
+},
+conpasswd:{
+required:true,
+equalTo: "#passwd"
+},
+gender:"required"
+},
+
+errorClass: "help-inline"
+
+});
+});
+</script>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+ 
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/database1.js"></script>
+        <script data-require="angular.js@1.4.0" data-semver="1.4.0" 
+    src="https://code.angularjs.org/1.4.0/angular.js"></script>
+    
+  </head>
+
+  <body ng-app="starter" ng-controller="RegisterController">
+    <ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Register</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeLogin()">Close</button>
+    </div>
+  </ion-header-bar>
+        <ion-pane>
+  <ion-content>
+    
+              <div> 
+             <label for="username" class="sr-only">Username</label>
+        <input type="text" id="username" class="form-control" placeholder="Username" required autofocus ng-model="username">
+        
+        <label for="password" class="sr-only">Password</label>
+        <input type="password" id="password" class="form-control" placeholder="Password" required autofocus ng-model="password">
+        
+          <label for="email" class="sr-only">Email</label>
+        <input type="text" id="email" class="form-control" placeholder="Email" required autofocus ng-model="email">   
+                  <br>
+                  <br>
+                  
+    <button align="center" class="btn btn-lg btn-primary btn-block" ng_click="register(username,password,email)" type="submit">Register</button>
+                  
+        </div>
+   
+  </ion-content>
+            </ion-pane>
+</ion-modal-view>
+
+  </body>
+</html>
+
+
+
+
+
+

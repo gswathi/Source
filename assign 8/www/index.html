@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+    <script src="js/ie-emulation-modes-warning.js"></script>
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+
+
+    <!-- Bootstrap core CSS -->
+
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/signin.css" rel="stylesheet">
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <!--<script src="cordova.js"></script>-->
+
+    <script src="js/ng-cordova.min.js"></script>
+    <script src="js/firebase.js"></script>
+    <script src="js/angularfire.min.js"></script>
+
+
+    <!-- your app's js -->
+
+    <script src="js/cam.js"></script>
+    <script src="js/database.js"></script>
+    <script data-require="angular.js@1.4.0" data-semver="1.4.0" src="https://code.angularjs.org/1.4.0/angular.js"></script>
+</head>
+
+<body ng-app="starter1" ng-controller="LoginController">
+    <ion-modal-view>
+        <ion-header-bar>
+            <h1 class="title">Login Page</h1>
+            <div class="buttons">
+                <button class="button button-clear" ng-click="closeLogin()">Close</button>
+            </div>
+        </ion-header-bar>
+        <ion-content>
+
+            <form class="form-signin">
+                <h4 class="form-signin-heading">Please sign in</h4>
+
+                <label for="username" class="sr-only">Username</label>
+                <input type="text" id="username" class="form-control" placeholder="Username" required autofocus ng-model="username">
+
+                <label for="password" class="sr-only">Password</label>
+                <input type="password" id="password" class="form-control" placeholder="Password" required autofocus ng-model="password">
+
+
+                <button class="btn btn-lg btn-primary btn-block" ng_click="login(username,password)" type="submit">Sign in</button>
+
+                <!--
+
+<label class="item item-input">   
+          <input type="text" ng-model="username" placeholder="Username">
+        </label>
+        <label class="item item-input">
+         
+          <input type="password" ng-model="password" placeholder="Password">
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">Log in</button>
+        </label>
+-->
+
+                <div>
+                    <span style="padding: 0 10px">&nbsp;</span>
+                    <input style="color:blue" type="checkbox">
+                    <label class="check" for="checkbox">Remember me.</label>
+                    <table align="center" style="margin: 2px auto;">
+                        <tr>
+                            <td>
+                                <h4 style="color:green">New to Student Corner?<span style="padding: 0 10px">&nbsp;</span><a style="color:navy blue" href="register.html">Register Here!!!</a>
+                  </h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <button  class="btn btn-lg btn-primary btn-block" onclick="window.location.href='camTest.html'" type="submit"><i class="icon ion-ios-camera-outline"></i>Camera</button>
+                            
+                        </tr>
+                    </table>
+                </div>
+                <div id="x"></div>
+            </form>
+        </ion-content>
+    </ion-modal-view>
+
+</body>
+
+</html>

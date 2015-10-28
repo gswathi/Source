@@ -1,0 +1,13 @@
+<ion-view view-title="MyAccount">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
+        {{playlist.title}}
+      </ion-item>
+    </ion-list>
+<!-- <a href="tel:+91-986-6042-2150" class="button button-positive">CalL Mom</a>
+      <a href="tel:+1-816-745-9035" class="button button-positive">Call Lokesh</a>
+      <a href="tel:+1-219-802-9196" class="button button-positive">Call Harshi</a>
+      <a href="tel:+1*1800 555 5555" class="button button-positive">Call Care</a>-->
+  </ion-content>
+</ion-view>

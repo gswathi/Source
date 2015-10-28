@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html data-ng-app="starter1">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>User Home Page</title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js" type="application/javascript"></script>
+    <script src="js/del.js"></script>
+
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body ng-controller="LoginController">
+    <center><b><h1></h1></b></center>
+    <center>
+        <div class="btn-group-vertical" role="group" aria-label="Vertical button group" style="position:absolute;left:320px;top:120px">
+
+            <input type="text" class="btn btn-default" placeholder="Username" ng-model="username" id="username">
+            <br>
+            <button type="button" class="btn btn-default" ng-click="deleteuser(username)">Delete UserName</button>
+
+        </div>
+
+        <script src="js/jquery-1.11.2.min.js" type="text/javascript"></script>
+
+</body>
+
+<script>
+    var user = localStorage.getItem("username");
+
+    //document.getElementById('user').innerHTML=""+user;
+</script>
+
+</html>
