@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+	<script src="C://Users/DELL/Desktop/angular.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script>
+	//angular.js example for factory vs service
+var app = angular.module('starter', []);
+    
+app.factory('testFactory', function(){
+    return {
+        sayHello: function(text){
+            return "Factory says \"Hello " + text + "\"";
+        },
+        sayGoodbye: function(text){
+            return "Factory says \"Goodbye " + text + "\"";
+        }  
+    }               
+});
+app.service('testService', function(){
+    this.sayHello= function(text){
+        return "Service says \"Hello " + text + "\"";
+    };        
+    this.sayGoodbye = function(text){
+        return "Service says \"Goodbye " + text + "\"";
+    };   
+});
+function HelloCtrl($scope, testService, testFactory)
+{
+    $scope.fromService = testService.sayHello("World");
+    $scope.fromFactory = testFactory.sayHello("World");
+}
+function GoodbyeCtrl($scope, testService, testFactory)
+{
+    $scope.fromService = testService.sayGoodbye("World");
+    $scope.fromFactory = testFactory.sayGoodbye("World");
+}
+	</script>
+
+   
+    
+  </head>
+  <body ng-app="starter">
+<div ng-controller="HelloCtrl">
+    <p>{{fromService}}</p>
+    <p>{{fromFactory}}</p>
+</div>
+<br />
+<div ng-controller="GoodbyeCtrl">
+    <p>{{fromService}}</p>
+    <p>{{fromFactory}}</p>
+</div>
+
+    </body>
+</html>

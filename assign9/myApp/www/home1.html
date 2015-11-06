@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+	<script src="js/angular.min.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+      <style> body{
+          background-image:url('s.jpg');
+      background-size:cover;
+      }</style>
+    <script>
+	//angular.js example for factory vs service
+var app = angular.module('starter', []);
+    
+app.factory('testFactory', function(){
+    return {
+        sayHello: function(text){
+            return "Factory says \"Hello " + text + "\"";
+        }
+    }               
+});
+function HelloCtrl($scope, testFactory)
+{
+    $scope.fromFactory = testFactory.sayHello("swathi");
+}
+var contacts = function(settings) {
+    this.number = settings.number || 'no number provided';
+    
+};
+var Mixin = function(){};
+Mixin.prototype = {
+    getFilesNo: function() {
+        alert("Mixin says you have 89 Files");
+    },
+    FilesList: function() {
+        console.log('connect to device');        
+    }
+};
+function augment(receivingClass, givingClass) {
+    
+    if(arguments[2]) {
+        var i, len = arguments.length;
+        for (i=2; i<len; i++) {
+            receivingClass.prototype[arguments[i]] = givingClass.prototype[arguments[i]];   
+        }
+    } 
+    
+    else {
+        var methodName;
+        for (methodName in givingClass.prototype) {
+            
+            if (!receivingClass.prototype[methodName]) {
+                receivingClass.prototype[methodName] = givingClass.prototype[methodName];   
+            }
+        }
+    }
+}
+augment(contacts, Mixin, 'getFilesNo', 'FilesList');
+var mmsg = new contacts({number:'56'});
+function press(){
+mmsg.getFilesNo();
+mmsg.FilesList();
+}
+	</script>
+
+   
+    
+  </head>
+  
+      
+      
+    
+    
+      <body ng-app="starter">
+  <div align="center">
+  <h1>Home</h1></div>
+<div ng-controller="HelloCtrl">
+    
+<table>
+<tr>
+    <p>{{fromFactory}}</p>
+</div>
+</tr></table>
+</div>
+<button name="register" onclick="press()">No of Files</button>
+
+
+
+            <div class="buttons" align="right">
+                <button class="button button-clear" onclick="window.location.href='index.html'">Logout</button>
+            </div>
+        </ion-header-bar>
+        <ion-content>
+
+            <div align="center" class="container">
+                <button class="btn btn-lg btn-primary btn-block" onclick="window.location.href='createEvent.html'" type="submit">Create New Event
+                </button>
+                <button class="btn btn-lg btn-primary btn-block" onclick="window.location.href='listevent.html'" type="submit">List Events
+                </button>
+                <!--<button class="btn btn-lg btn-primary btn-block" onclick="window.location.href='deleteUser.html'" type="submit">DeleteUser
+                </button>-->
+                <span style="padding: 0 50px">&nbsp;</span>
+            </div>
+        
+
+
+
+    </body>
+</html>

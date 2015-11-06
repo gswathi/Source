@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html data-ng-app="myApp">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Registration Page</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js" type="application/javascript"></script>  
+  <script src="js/app.js"></script>
+    
+<style>
+		.myButton {
+	-moz-box-shadow:inset 0px 0px 0px 0px #9fb4f2;
+	-webkit-box-shadow:inset 0px 0px 0px 0px #9fb4f2;
+	box-shadow:inset 0px 0px 0px 0px #9fb4f2;
+	background-color:#7892c2;
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;
+	border-radius:2px;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:4px 45px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #283966;
+}
+.myButton:hover {
+	background-color:#476e9e;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+   
+html { 
+  background: url(images/4.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+    
+</style>
+
+    
+</head>
+
+<body class="login" ng-controller="RegisterController">
+
+<div class="loginbox radius" style="position:absolute;left:410px; top:100px;">
+<h2 style="color:#141823; text-align:center;">Registration Form</h2>
+	<div class="loginboxinner radius">
+    	
+        
+        <div class="loginform">
+                	
+        	<form id="login" action="" method="post">
+            <p>
+                    <input type="text" id="username" name="username" placeholder=" First Name/User Name" value="" class="radius" ng-model="username"
+                           />	 
+                </p>
+                <p> <input name="username" type="text" class="radius" id="username" placeholder="Last Name" value="" maxlength="25" ng-model="lastname" />
+                </p>
+            	<p>
+                    <input type="text" id="username" name="username" placeholder="Your Email" value="" class="radius" ng-model="emailid" />
+                </p>
+                <p>
+                    <input type="text" id="email." name="password" placeholder="Re-enter Email" class="radius" ng-model="reemailid" />
+                </p>
+                <p>
+                    <input type="password" id="password"  placeholder="New Password" class="radius" ng-model="password" />
+                </p>
+                
+            </form><p>
+                	<button name="client_login" ng-click="register(username,lastname,emailid,reemailid,password)">Register</button>
+            <button name="client_login" onclick="window.location.href='main1.html'">Back</button>
+<!--            <a href="main1.html" name="client_login">Back</a>-->
+                </p>
+        </div>
+    </div>
+</div>
+
+
+
+
+</center>
+</div>
+<!--<div class="loginbtn" style="position:absolute;left:600px;top:590px">
+<a href="main1.html" class="myButton">Back</a>
+</div>-->	
+
+<div style="position:absolute;left:550px;top:640px;color:brown" ng-hide="checked">
+    <h3>{{msg}}</h3>
+</div>
+
+	
+
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+	<script src="js/angular.min.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script>
+	//angular.js example for factory vs service
+var app = angular.module('starter', []);
+    
+app.service('testService', function(){
+    this.sayHello= function(text){
+        return "Service says \"Hello " + text + "\"";
+    };        
+});
+function HelloCtrl($scope, testService)
+{
+    $scope.fromService = testService.sayHello("User,welcome to student corner");
+}
+function addtext()
+          {
+             fname = document.getElementById('uname').value;
+            if (typeof(Storage) !== "undefined") {
+    // Store
+    localStorage.setItem("lastname", fname);
+                window.location.href="C://Users/DELL/Desktop/Home.html";
+}
+              
+          }
+</script>
+    </head>
+  <body ng-app="starter">
+<div ng-controller="HelloCtrl">
+    <h2>{{fromService}}</h2>
+</div>
+<div align="center">
+    
+<input type="text" id="username" class="form-control" placeholder="Username" required autofocus ng-model="username">
+
+                <label for="password" class="sr-only">Enter Password</label>
+                <input type="password" id="password" class="form-control" placeholder="Password" required autofocus ng-model="password">
+
+
+    <button class="btn btn-lg btn-primary btn-block" ng_click="login(username,password)" type="submit">Sign in</button>
+
+                    <a href="#">forgot my password</a>
+    <!-- <a href="C:/Desktop/ASE/New Folder/ASE/WebContent/Home.html"></a> -->
+    <!--<a href="C:/Users/DELL/Desktop/Register.html" class="button">Register</a>-->
+    <br/><input type=button value="Register" onClick="location.href='C:/Users/DELL/Desktop/Lab 3/Register.html'"/>
+</body>
+</html>
