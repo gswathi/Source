@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Home</title>
+<style>
+html, body {
+height: 100%;
+margin: 0;
+padding: 0;
+}
+
+#map {
+height: 100%;
+}
+
+.weatherModule {
+    background:#f2f2f2;
+    height:150px;
+    width:250px;
+    border: 1px dashed #ccc;
+    padding: 1em;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+a:link, a:visited {
+    display: block;
+    width: 435px;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #98bf21;
+    text-align: center;
+    padding: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+a:hover, a:active {
+    background-color: #7A991A;
+}
+    a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    width:auto;
+    text-decoration: none;
+    color: initial;
+}
+#wrapper {
+  width:700px;
+  clear:both;
+}
+#map_canvas {
+  
+  width:200px;
+  float:left;
+}
+#second {
+  
+  width:300px;
+  float:left;
+}
+#third {
+  
+  width:200px;
+  float:left;
+}
+</style>
+</head>
+<body>
+<ion-header-bar>
+        <div>
+        <button class="button button-clear button-positive" ng-click="logout()">Logout</button>
+        </div>
+    </ion-header-bar>
+    
+    
+    
+    
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js" type="application/javascript"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
+Hello <label id="name"></label>
+<div id="wrapper">
+  <div id="row">
+    <div data-role="content">
+         Start City: <input id='sCity' /> 
+         Start State: <input id='sState' /><br/><br/>  
+    End City: <input id='eCity'/> 
+      End State: <input id='eState'/> 
+<button id="button">Get Directions</button>
+<div id="map_canvas" style="height: 400px; width: 400px"></div>   
+       <div class="weatherModule">
+<p class="currentConditions">    A</p>
+<div  class="currentIcon"></div>
+        </div>
+           <div id="second" class="weatherModule1">
+<p class="currentConditions1">    B</p>
+<div id="third" class="currentIcon1"></div>
+        </div> 
+ </div>
+</div>
+    
+</body>
+ 
+<script
+ src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+ <script src="https://code.jquery.com/jquery-1.9.1.min.js">
+ </script>
+<script>
+if (typeof(Storage) !== "undefined") {
+    document.getElementById("name").innerHTML = localStorage.getItem("lastname");
+}
+function initialize()
+{
+var directionDisplay;
+var directionsService = new google.maps.DirectionsService();     //Create a DirectionsService object which is required to communicate with the Google Maps API Direction Service
+var map2;
+
+            directionsDisplay = new google.maps.DirectionsRenderer();        //Create a DirectionsRenderer object to render the directions results
+    var center = new google.maps.LatLng(0, 0);    //Map is centered at 0,0
+    var myOptions =
+    {
+            zoom:7,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            center: center
+    };
+    map2 = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    directionsDisplay.setMap(map2);
+    var startc = $("#sCity").val();     //Set the source/ origin
+    var endc = $("#eCity").val();  //Set the destination
+    var starts = $("#sState").val();     //Set the source/ origin
+    var ends = $("#eState").val();
+    var request =
+    {
+            origin:startc,
+       
+destination:endc,
+        
+            travelMode: google.maps.DirectionsTravelMode.DRIVING          //Current travel mode is DRIVING. You can change to BICYCLING or WALKING and see the changes.
+    };
+    directionsService.route(request, function(response, status)
+    {
+            if (status == google.maps.DirectionsStatus.OK) //Check if request is successful.
+            {
+            directionsDisplay.setDirections(response);         //Display the directions result
+            }
+    });
+
+ 
+
+$.ajax({
+
+  url: 'http://api.wunderground.com/api/36b799dc821d5836/conditions/q/'+starts+'/'+startc+'.json',
+ 
+
+  dataType: 'jsonp',
+
+  data: 'url',
+
+  success: function(data) {
+
+    var icon, index, result, temp, weather, _results;
+
+    _results = [];
+
+    for (index in data) {
+
+      result = data[index];
+
+      temp = Math.round(result.temp_f);
+
+      icon = result.icon_url;
+
+      weather = result.weather;
+
+      $('p.currentConditions').html("Currently  " + temp + " &deg; F and " + weather);
+
+      _results.push($('div.currentIcon').html("<img src='" + icon + "' >"));
+
+    }
+
+    return _results;
+
+  }
+
+});
+    $.ajax({
+
+  url: 'http://api.wunderground.com/api/36b799dc821d5836/conditions/q/'+ends+'/'+endc+'.json',
+ 
+
+  dataType: 'jsonp',
+
+  data: 'url',
+
+  success: function(data) {
+
+    var icon, index, result, temp, weather, _results;
+
+    _results = [];
+
+    for (index in data) {
+
+      result = data[index];
+
+      temp = Math.round(result.temp_f);
+
+      icon = result.icon_url;
+
+      weather = result.weather;
+
+      $('p.currentConditions1').html("Currently  " + temp + " &deg; F and " + weather);
+
+      _results.push($('div.currentIcon1').html("<img src='" + icon + "' >"));
+
+    }
+
+    return _results;
+
+  }
+
+});
+
+}
+var button = document.getElementById('button');
+var onClick = function(){
+    initialize();
+};
+button.addEventListener('click', onClick, false);
+</script>
+</html>
